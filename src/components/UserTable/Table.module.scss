@@ -1,0 +1,133 @@
+@import "../../styles/variable.module";
+
+.desktopTable {
+  display: none;
+
+  @media (min-width: 640px) {
+    display: block;
+  }
+}
+
+.mobileTable {
+  display: block;
+
+  @media (min-width: 640px) {
+    display: none;
+  }
+}
+
+.table {
+  display: flex;
+  margin-block: 15px;
+  font-weight: bold;
+
+  @media (min-width: 640px) {
+    display: table;
+    margin-block: 0;
+  }
+
+  & .head {
+    display: table-header-group;
+    flex: 1;
+    color: var(--white);
+    background-color: var(--secondary);
+
+    & .row {
+      display: flex;
+      flex-direction: column;
+
+      @media (min-width: 640px) {
+        flex-direction: row;
+      }
+
+      & > .cell {
+        width: auto;
+        padding-block: 15px;
+        padding-left: 15px;
+        text-align: left;
+
+        @media (min-width: 640px) {
+          text-align: center;
+          padding-left: 0;
+
+          &:nth-child(1) {
+            width: 50px;
+          }
+
+          &:nth-child(2) {
+            width: 120px;
+          }
+
+          &:nth-child(3) {
+            width: 250px;
+          }
+
+          &:nth-child(4) {
+            width: 120px;
+          }
+        }
+      }
+    }
+  }
+
+  & .body {
+    display: table-row-group;
+    flex: 2;
+    color: var(--grey1);
+    background-color: var(--white);
+
+    & > .row {
+      display: flex;
+      flex-direction: column;
+
+      @media (min-width: 640px) {
+        flex-direction: row;
+
+        &:nth-child(2n) {
+          background-color: var(--grey4);
+        }
+      }
+
+      & .cell {
+        padding-block: 15px;
+        text-align: center;
+
+        &:nth-child(2n) {
+          background-color: var(--grey4);
+
+          @media (min-width: 640px) {
+            background-color: transparent;
+          }
+        }
+
+        @media (min-width: 640px) {
+          &:nth-child(1) {
+            width: 50px;
+          }
+
+          &:nth-child(2) {
+            width: 120px;
+          }
+
+          &:nth-child(3) {
+            width: 250px;
+          }
+
+          &:nth-child(4) {
+            width: 120px;
+          }
+        }
+      }
+    }
+  }
+
+  & .row {
+    & .success {
+      color: var(--green);
+    }
+
+    & .fail {
+      color: var(--primary-light);
+    }
+  }
+}
